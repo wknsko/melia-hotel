@@ -14,7 +14,7 @@
     </header>
 
 
-    <div class="welcome">
+    <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2500" class="welcome">
       <div class="level">
         <div>
           <div class="description">Get the celebrity treatment with world-class service at</div>
@@ -31,16 +31,16 @@
       <div class="img-two">
         <img src="./assets/002.jpeg" alt="">
       </div>
-      <div class="small-text">
+      <div data-aos="fade-up" class="small-text">
         Thanks to its strategic position in a central but quiet tree-lined street, the Meliá Genova is a great choice
         for
         a business and leisure stay while discovering the city, but also for a romantic getaway or to celebrate special
         moments.
       </div>
-      <button class="read-more">Explore More</button>
+      <button data-aos="flip-up" class="read-more">Explore More</button>
     </div>
 
-    <div class="quote">
+    <div data-aos="fade-down-right" data-aos-easing="linear" data-aos-duration="2500" class="quote">
       <div class="quote-text">
         Melia Genova is a boutique hotel in the most elegant residential area of Genoa, within walking distance of the
         historical centre</div>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="pic-text-pic">
-      <div class="level">
+      <div>
         <div class="text-before">
           Just 600 m from the Fiera di Genova exhibition centre, the hotel is 5 minutes' walk from the
           Renaissance church of Santa Maria Assunta. Carlo Felice Theatre is just 10 minutes away on foot. Tickets for
@@ -63,7 +63,8 @@
         </div>
       </div>
       <div>
-        <div class="text-after">
+        <div data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in" data-aos-mirror="true"
+          data-aos-once="false" data-aos-anchor-placement="top-center" class="text-after">
           Wellness centre with indoor swimming pool, hot tub, Turkish bath, rain shower and a fitness area, including a
           fully equipped 24-hour gym
           Suitable for hosting important meetings and small events in a flexible space, making it the ideal location for
@@ -73,11 +74,16 @@
     </div>
 
     <div class="rooms">
-      <div class="text-first">The light and freshness of the rooms at the Meliá Genova complement the combination of
+      <div data-aos="fade-right" data-aos-offset="200" data-aos-delay="50" data-aos-duration="2000"
+        data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+        data-aos-anchor-placement="top-center" class="text-first">The light and
+        freshness of the rooms at the Meliá Genova complement the combination of
         warm
         platinum, titanium and copper tones in the fabrics, accompanied by delicate and luxurious facilities in the
         bathrooms made from fine white crystal and prestigious antique brown marble.
-        <div class="img-one">
+        <div data-aos="fade-left" data-aos-offset="0" data-aos-delay="50" data-aos-duration="2000"
+          data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center"
+          class="img-one">
           <img src="./assets/011.jpeg" alt="">
         </div>
       </div>
@@ -90,7 +96,9 @@
           <div class="line"></div>
           <button>Check availability</button>
         </div>
-        <div class="img-two">
+        <div class="img-two" data-aos="flip-up" data-aos-offset="400" data-aos-delay="50" data-aos-duration="2000"
+          data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+          data-aos-anchor-placement="top-center">
           <img src="./assets/001.jpeg" alt="">
         </div>
       </div>
@@ -101,7 +109,8 @@
         sophisticated
         details, beds with majestic headboards, an exclusive desk and a tantalizing minibar.</div>
       <div class="discount">
-        <img src="./assets/006.jpeg" alt="">
+        <img data-aos="flip-up" data-aos-duration="2000" data-aos-offset="400" data-aos-delay="50"
+          data-aos-anchor-placement="top-center" src="./assets/006.jpeg" alt="">
         <div class="text">
           <div class="headline"><strong>5%</strong> discount for newcomers</div>
           <button class="m">Read More</button>
@@ -132,13 +141,17 @@
       <div class="headline">Blue Lounge & Restaurant to enjoy Ligurian and Mediterranean flavours, also very popular
         among locals</div>
       <div class="imgs2">
-        <div class="img-four">
+        <div data-aos="zoom-in-down" data-aos-offset="500" data-aos-delay="50" data-aos-duration="2000"
+          data-aos-easing="ease-in" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center"
+          class="img-four">
           <img src="./assets/010.jpeg" alt="">
         </div>
         <div class="square-color"></div>
         <div class="line"></div>
         <div class="img-five">
-          <img src="./assets/005.jpeg" alt="">
+          <img data-aos="zoom-in-down" data-aos-offset="500" data-aos-delay="50" data-aos-duration="2000"
+            data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false"
+            data-aos-anchor-placement="top-center" src="./assets/005.jpeg" alt="">
         </div>
       </div>
       <div class="text-three">
@@ -167,9 +180,24 @@
 </template>
 
 <script>
+import AOS from 'aos'
 
 export default {
   name: 'App',
+  mounted() {
+    AOS.init()
+  },
+  methods: {
+    handleScroll: function(evt, el) {
+      if(window.scrollY > 30) {
+        el.setAttribute(
+          'style',
+          'opacity: 1;'
+        )
+      }
+      return window.scrollY > 350
+    }
+  },
   components: {
 
   }
@@ -182,6 +210,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #505050;
+  overflow-x: hidden;
   
 }
 img {
@@ -233,6 +262,8 @@ header .logo img {
   display: flex;
   justify-content: center;
 }
+.welcome .level
+
 .welcome .img-one img{
   max-width: 400px;
   width: 100%;
@@ -257,7 +288,7 @@ header .logo img {
   background-color:#a1b394d1;
 }
 .welcome .img-two img{
-  max-width: 540px;
+  max-width: 440px;
   width: 100%;
   margin-top: 30px;
 }
@@ -323,7 +354,11 @@ header .logo img {
     width: 100%;
     margin: 80px auto;
     
-    
+ 
+  
+  }
+  .pic-text-pic div {
+    display: flex;
   }
     .pic-text-pic .text-before {
       font-size: clamp(12px, 2vw, 18px);
@@ -337,7 +372,7 @@ header .logo img {
     }
 
     .pic-text-pic img {
-      max-width: 580px;
+      max-width: 550px;
       width: 100%;
     }
     .pic-text-pic .text-after {
